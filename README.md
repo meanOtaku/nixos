@@ -11,6 +11,9 @@ update the uuid in hardware-configuration.nix by replacing it with uuid availabl
 ls /dev/disk/by-uuid/
 ```
 ```
+update the uuid in hardware-configuration.nix by replacing it with uuid available in #### /dev/disk/by-uuid/
+```
+```
 sudo nixos-rebuild switch --flake './my-nix-flake#<your_host_name>'
 ```
 ```
