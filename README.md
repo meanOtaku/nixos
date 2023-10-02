@@ -7,7 +7,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 sudo nixos-rebuild switch
 ```
 ```
-update the uuid in hardware-configuration.nix by replacing it with uuid available in #### /dev/dusk/by-uuid/
+update the uuid in hardware-configuration.nix by replacing it with uuid available in #### /dev/disk/by-uuid/
 ```
 ```
 sudo nixos-rebuild switch --flake './my-nix-flake#<your_host_name>'
@@ -21,4 +21,8 @@ nix-shell '<home-manager>' -A install
 ```
 ```
 home-manager switch --flake ./my-nix-flake#<USERNAME>
+```
+### 
+```
+sudo nixos-rebuild switch --flake './my-nix-flake#<your_host_name>'
 ```
