@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./apps/zsh.nix
-	    ./apps/fzf.nix  
+      ./apps/fzf.nix  
     ];
 
   # Bootloader.
