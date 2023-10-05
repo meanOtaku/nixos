@@ -8,8 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./apps/zsh.nix
-      ./apps/fzf.nix  
     ];
 
   # Bootloader.
@@ -112,6 +110,13 @@
      wget
   #  git
   ];
+
+  ...
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.vaibhav = import ./home.nix;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
