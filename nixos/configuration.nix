@@ -111,7 +111,6 @@
   #  git
   ];
 
-  ...
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
