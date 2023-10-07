@@ -6,7 +6,7 @@
   ./apps/zsh.nix
   ./apps/fzf.nix  
   ./apps/git.nix  
-  ./apps/kitty.nix
+  #./apps/kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -74,7 +74,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     EDITOR = "micro";
-    TERMINAL = "kitty";
+    #TERMINAL = "kitty";
   };
 
   # Let Home Manager install and manage itself.
