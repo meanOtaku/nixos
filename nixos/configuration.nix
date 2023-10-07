@@ -150,7 +150,7 @@
             mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
           })
         )
-    ]
+    ];
   };
 
   environment.sessionVariables = {
