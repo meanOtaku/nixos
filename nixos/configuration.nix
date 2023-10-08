@@ -83,6 +83,7 @@
   users.users.vaibhav = {
     isNormalUser = true;
     description = "vaibhav";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
@@ -90,7 +91,11 @@
     #  thunderbird
     ];
   };
-
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [
+    zsh
+  ];
+  users.defaultUserShell = pkgs.zsh;
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "vaibhav";

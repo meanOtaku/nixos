@@ -2,7 +2,11 @@
 
 {
   imports = [
-	./apps/micro.nix  	
+	./apps/micro.nix
+  ./apps/zsh.nix
+  ./apps/fzf.nix  
+  ./apps/git.nix  
+  #./apps/kitty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -23,7 +27,7 @@
   home.packages = with pkgs; [
 	htop
 	neofetch
-	git
+	gh
 	#micro
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -69,7 +73,8 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "micro";
+    #TERMINAL = "kitty";
   };
 
   # Let Home Manager install and manage itself.
