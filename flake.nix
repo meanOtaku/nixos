@@ -18,6 +18,8 @@
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # this is the important part
           modules = [
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
             ./nixos/configuration.nix
           ];
         };
