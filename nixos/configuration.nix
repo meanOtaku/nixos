@@ -109,6 +109,16 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
   #  git
+  # hyprland dependencies
+     (waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    dunst
+    libnotify
+    swww
+    kitty 
+    rofi-wayland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -150,17 +160,6 @@
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
-  environment.systemPackages = [
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    pkgs.dunst
-    libnotify
-    swww
-    kitty
-    rofi-wayland
-  ];
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   nix.settings = {
