@@ -160,7 +160,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Hyprland configuration
   programs.hyprland = {
-    enable = true;
     xwayland.enable = true;
   };
   environment.sessionVariables = {
