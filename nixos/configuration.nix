@@ -114,11 +114,24 @@
         mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       })
     )
+    hyprland
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    xwayland
     dunst
     libnotify
     swww
     kitty 
     rofi-wayland
+    meson
+    wayland-protocols
+    wayland-utils
+    wl-clipboard
+    wlroots
+
+    # terminal emulator
+    kitty
+    foot
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -151,8 +164,8 @@
   # Hyprland configuration
   programs.hyprland = {
     enable = true;
+    xwayland.hidpi = true;
     xwayland.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   environment.sessionVariables = {
     # If your cursor becomes invisible
@@ -160,10 +173,27 @@
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
   };
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    meslo-lgs-nf
+  ];
 }
