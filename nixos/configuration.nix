@@ -110,10 +110,7 @@
      wget
   #  git
   # hyprland dependencies
-     (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
+
     hyprland
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
@@ -164,7 +161,6 @@
   # Hyprland configuration
   programs.hyprland = {
     enable = true;
-    xwayland.hidpi = true;
     xwayland.enable = true;
   };
   environment.sessionVariables = {
