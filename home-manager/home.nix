@@ -7,6 +7,8 @@
   ./apps/fzf.nix  
   ./apps/git.nix  
   #./apps/kitty.nix
+  inputs.hyprland.homeManagerModules.default
+  ./apps/hyprland.nix # points to ./hypr/default.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
