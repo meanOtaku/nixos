@@ -24,15 +24,6 @@
             ''
         )
         10)}
-
-        # ...
-        decortation {
-            blur {
-                enable = true
-                # ...
-            }
-        # ...
-        }
     '';
   };
 }
