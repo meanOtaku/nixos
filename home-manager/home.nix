@@ -47,6 +47,40 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    hyprland
+    swww # for wallpapers
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    xwayland
+
+    meson
+    wayland-protocols
+    wayland-utils
+    wl-clipboard
+    wlroots
+
+    # notification daemon
+    dunst
+    libnotify
+
+    # terminal emulator
+    kitty
+    foot
+
+    # networking
+    networkmanagerapplet # GUI for networkmanager
+
+    # app launchers
+    rofi-wayland
+    wofi
+  ];
+
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,6 +112,11 @@
     EDITOR = "micro";
     #TERMINAL = "kitty";
   };
+
+  fonts.fonts = with pkgs; [
+    nerdfonts
+    meslo-lgs-nf
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

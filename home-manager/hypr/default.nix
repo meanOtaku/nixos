@@ -1,10 +1,21 @@
 # default.nix
 { config, inputs, pkgs, ... }:
 {
+  programs.hyprland = {
+    enable = true; 
+    xwayland.hidpi = true;
+    xwayland.enable = true;
+  };
+
+  # Hint Electon apps to use wayland
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
     extraConfig = ''
+        exec-once=bash ~/vaibhav/nixos/start.sh
         $mod = SUPER
 
         bind = $mod, F, exec, firefox
