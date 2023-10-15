@@ -113,10 +113,6 @@
     #TERMINAL = "kitty";
   };
 
-  fonts.fonts = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
