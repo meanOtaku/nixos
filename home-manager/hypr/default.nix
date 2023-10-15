@@ -3,7 +3,6 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland = true;
     systemd = {
       enable = true;
     };
