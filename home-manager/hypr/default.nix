@@ -3,9 +3,6 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd = {
-      enable = true;
-    };
     systemdIntegration = true;
     extraConfig = ''
         exec-once=bash ~/vaibhav/nixos/start.sh
