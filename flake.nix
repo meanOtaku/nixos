@@ -1,16 +1,33 @@
 {
   description = "NixOS configuration with Home Manager";
 
+  nixConfig = {
+    # manage flakes 
+    experimental-features = [ "nix-command" "flakes" ];
+  };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
        url = "github:nix-community/home-manager";
        inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, hyprland, ... }: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
+  let 
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = { allowUnfree = true; };
+    };
+    lib = nixpkgs.lib;
+
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
