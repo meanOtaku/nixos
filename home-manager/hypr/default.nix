@@ -17,7 +17,7 @@
         #
 
         # See https://wiki.hyprland.org/Configuring/Monitors/
-        monitor=,preferred,auto,auto
+        monitor=,1920x1080,auto,1
 
 
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -133,7 +133,7 @@
         $mainMod = SUPER
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, Q, exec, kitty
+        bind = $mainMod, Q, exec, foot
         bind = $mainMod, C, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, E, exec, dolphin
