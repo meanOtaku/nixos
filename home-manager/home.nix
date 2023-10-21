@@ -47,7 +47,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    hyprland
     swww # for wallpapers
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
