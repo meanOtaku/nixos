@@ -110,7 +110,13 @@
      wget
   #  git
   ];
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    WLR_RENDERER_ALLOW_SOFTWARE= "1";
+  };
 
+  # Enable vmware tools
+  virtualisation.vmware.guest.enable = true;
   fonts.fonts = with pkgs; [
     nerdfonts
     meslo-lgs-nf

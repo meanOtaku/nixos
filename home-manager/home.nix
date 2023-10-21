@@ -51,7 +51,7 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
     xwayland
-
+    waybar
     meson
     wayland-protocols
     wayland-utils

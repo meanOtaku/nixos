@@ -3,7 +3,7 @@
 # initialize wallpaper daemon
 swww init &
 # set wallpaper
-swww img ~/path/to/file.png &
+swww img ~/nixos/chainsaw.jpg &
 
 # networking
 nm-applet --indicator &
